@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<h2>Suppliers</h2>
+<a href="/suppliers/new" class="btn btn-primary mb-2">Add Supplier</a>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+  <% suppliers.forEach(s => { %>
+  <tr>
+    <td><%= s.name %></td>
+    <td><%= s.address %></td>
+    <td><%= s.phone %></td>
+    <td>
+      <a href="/suppliers/<%= s._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+      <a href="/suppliers/<%= s._id %>/delete" class="btn btn-danger btn-sm">Delete</a>
+    </td>
+  </tr>
+  <% }) %>
+</table>
+<%- include('../partials/footer') %>

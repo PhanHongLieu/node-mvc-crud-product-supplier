@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<h2>New Product</h2>
+<form action="/products" method="POST">
+  <div class="mb-3">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label>Price</label>
+    <input type="number" name="price" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Quantity</label>
+    <input type="number" name="quantity" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label>Supplier</label>
+    <select name="supplierId" class="form-control">
+      <% suppliers.forEach(s => { %>
+        <option value="<%= s._id %>"><%= s.name %></option>
+      <% }) %>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+<%- include('../partials/footer') %>
